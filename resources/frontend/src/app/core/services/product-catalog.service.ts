@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { CursorPage } from '../models/cursor-page';
@@ -33,7 +33,11 @@ export class ProductCatalogService {
   constructor(private http: HttpClient) {}
 
   getCatalog(filters: CatalogFilters = {}): Observable<CursorPage<Product>> {
-    return this.http.post<CursorPage<Product>>(this.baseUrl, filters);
+    let params = new HttpParams();
+    if (filters.cursor) {
+      params = params.set('cursor', filters.cursor);
+    }
+    return this.http.post<CursorPage<Product>>(this.baseUrl, filters, { params });
   }
 
   nextPage(current: CursorPage<Product>, filters: CatalogFilters = {}) {

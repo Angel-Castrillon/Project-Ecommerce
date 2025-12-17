@@ -40,7 +40,7 @@ class ProductCatalogController extends Controller
         if (!empty($validated['search'])) {
             $search = $validated['search'];
             $query->where(function ($q) use ($search) {
-                $q->where('name', 'ILIKE', "%{$search}%")->orWhere('sku', 'ILIKE', "%{$search}%");
+                $q->where('name', 'LIKE', "%{$search}%")->orWhere('sku', 'LIKE', "%{$search}%");
             });
         }
 
