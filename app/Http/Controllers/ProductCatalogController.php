@@ -57,7 +57,7 @@ class ProductCatalogController extends Controller
         }
 
         if (!empty($validated['in_stock'])) {
-            $query->where('stock', '>', 0);
+            $query->where('stock', '<=', 0);
         }
 
         //Ordenamiento
