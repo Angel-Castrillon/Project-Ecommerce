@@ -27,13 +27,13 @@ class ProductCatalogController extends Controller
             'per_page'    => ['nullable', 'integer', 'min:1', 'max:50'],
         ]);
 
-        $query = Product::query();
+        $query = Product::with('category');
  
 
         //Filtros
-        if (array_key_exists('is_active', $validated)) {
+        if (isset($validated['is_active'])) {
             $query->where('is_active', $validated['is_active']);
-        } else{
+        } else {
             $query->where('is_active', true);
         }
 
@@ -57,7 +57,7 @@ class ProductCatalogController extends Controller
         }
 
         if (!empty($validated['in_stock'])) {
-            $query->where('stock', '<=', 0);
+            $query->where('stock', '>', 0);
         }
 
         //Ordenamiento

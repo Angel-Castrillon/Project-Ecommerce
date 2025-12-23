@@ -68,6 +68,12 @@ class ProductSeeder extends Seeder
                 'stock' => 100,
                 'image' => 'https://via.placeholder.com/200x200/DA70D6/000000?text=PopIt'
             ],
+            [
+                'name' => 'Paquete de Bloques de Juguete',
+                'price' => 25000,
+                'stock' => 50,
+                'image' => 'https://via.placeholder.com/200x200/DA70D6/000000?text=Paquete'
+            ],
         ];
 
         foreach ($products as $product) {
