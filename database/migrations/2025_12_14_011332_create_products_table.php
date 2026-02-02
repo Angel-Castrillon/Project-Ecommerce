@@ -17,13 +17,12 @@ return new class extends Migration
             $table->string('name', 180);
             $table->string('slug', 200)->unique();
             $table->text('description');
+            $table->string('image')->nullable();
             $table->decimal('price', 12, 2);
             $table->integer('stock');
             $table->boolean('is_active')->default(true);
 
-            //Quitar cuando se cree category
-            $table->unsignedBigInteger('category_id')->nullable();
-            //$table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('deleted_by')->nullable()->constrained('users')->nullOnDelete();

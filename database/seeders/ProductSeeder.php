@@ -18,61 +18,61 @@ class ProductSeeder extends Seeder
                 'name' => 'Espinaca',
                 'price' => 12000,
                 'stock' => 50,
-                'image' => 'https://via.placeholder.com/200x200/90EE90/000000?text=Espinaca'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Carrusel Musical',
                 'price' => 45000,
                 'stock' => 20,
-                'image' => 'https://via.placeholder.com/200x200/FFB6C1/000000?text=Carrusel'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Libro 1984',
                 'price' => 28000,
                 'stock' => 15,
-                'image' => 'https://via.placeholder.com/200x200/87CEEB/000000?text=1984'
-            ],
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
+            ],  
             [
                 'name' => 'Set de Maquillaje',
                 'price' => 65000,
                 'stock' => 30,
-                'image' => 'https://via.placeholder.com/200x200/FFD700/000000?text=Makeup'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Control Remoto',
                 'price' => 35000,
                 'stock' => 40,
-                'image' => 'https://via.placeholder.com/200x200/DDA0DD/000000?text=Control'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Cortador de Vegetales',
                 'price' => 22000,
                 'stock' => 60,
-                'image' => 'https://via.placeholder.com/200x200/98FB98/000000?text=Cortador'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Bolso Organizador',
                 'price' => 48000,
                 'stock' => 25,
-                'image' => 'https://via.placeholder.com/200x200/778899/000000?text=Bolso'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Bolso Organizador Azul',
                 'price' => 52000,
                 'stock' => 10,
-                'image' => 'https://via.placeholder.com/200x200/4682B4/000000?text=Bolso'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Juguete Pop It',
                 'price' => 18000,
                 'stock' => 100,
-                'image' => 'https://via.placeholder.com/200x200/DA70D6/000000?text=PopIt'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
             [
                 'name' => 'Paquete de Bloques de Juguete',
                 'price' => 25000,
                 'stock' => 50,
-                'image' => 'https://via.placeholder.com/200x200/DA70D6/000000?text=Paquete'
+                'image' => 'https://unsplash.com/es/fotos/e-FEipsPfiUvk'
             ],
         ];
 
@@ -85,6 +85,8 @@ class ProductSeeder extends Seeder
                 'price' => $product['price'],
                 'stock' => $product['stock'],
                 'is_active' => true,
+                'category_id' => rand(1, 3),
+                'image' => 'https://picsum.photos/seed/' . Str::slug($product['name']) . '/400/400',
             ]);
         }
     }
